@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Wart and Jacob Tsang
+ */
+
 public class BankAccount {
     double balanceCdn;
     String accountNumber;
@@ -9,14 +13,20 @@ public class BankAccount {
         this.memberLastName = memberLastName;
     }
 
+
+    //Withdraws money from the account, does not check for overdraw
     public void withdraw(double amountCdn){
         this.balanceCdn -= amountCdn;
     }
+
+    //Deposit money into the account
     public void deposit(double amountCdn){
         this.balanceCdn += amountCdn;
     }
-    public void transfer(double amountCdn, BankAccount recipient_account){
-        recipient_account.deposit(amountCdn);
+
+    //Transfer money from this account to recipientAccount
+    public void transfer(double amountCdn, BankAccount recipientAccount){
+        recipientAccount.deposit(amountCdn);
         this.withdraw(amountCdn);
     }
 }

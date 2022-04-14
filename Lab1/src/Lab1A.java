@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Wart and Jacob Tsang
+ */
+
 public class Lab1A {
     public static void main(String[] arguments){
         var b1 = new BankAccount(100.00, "abc123", "gates");
