@@ -1,6 +1,6 @@
 /**
- * @author Ruisi Tang
- * @version 1.0
+ * @author Ruisi Tang and Daniel Wart
+ * @version 1.1
  */
 public class Main
 {

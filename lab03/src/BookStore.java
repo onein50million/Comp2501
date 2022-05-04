@@ -1,12 +1,14 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
+import java.util.stream.Stream;
+
 /**
- * @author Ruisi Tang
- * @version 1.0
+ * @author Ruisi Tang and Daniel Wart
+ * @version 1.1
  */
 public class BookStore
 {
-    private final String           bookStoreName;
+    public final String            bookStoreName;
     private final ArrayList<Novel> novels = new ArrayList<>();
 
     public BookStore(String bookStoreName)
@@ -68,61 +70,61 @@ public class BookStore
         novels.add(new Novel("The Heart of the Matter	"	,	"	Graham Greene	"	,	1948	));
         novels.add(new Novel("Herzog	"	,	"	Saul Bellow	"	,	1964	));
         novels.add(new Novel("Housekeeping	"	,	"	Marilynne Robinson	"	,	1981	));
-        novels.add(new Novel("	A House for Mr. Biswas	"	,	"	V.S. Naipaul	"	,	1962	));
-        novels.add(new Novel("	I, Claudius	"	,	"	Robert Graves	"	,	1934	));
-        novels.add(new Novel("	Infinite Jest	"	,	"	David Foster Wallace	"	,	1996	));
-        novels.add(new Novel("	Invisible Man	"	,	"	Ralph Ellison	"	,	1952	));
-        novels.add(new Novel("	Light in August	"	,	"	William Faulkner	"	,	1932	));
-        novels.add(new Novel("	The Lion, The Witch and the Wardrobe	"	,	"	C.S. Lewis	"	,	1950	));
-        novels.add(new Novel("	Lolita	"	,	"	Vladimir Nabokov	"	,	1955	));
-        novels.add(new Novel("	Lord of the Flies	"	,	"	William Golding	"	,	1954	));
-        novels.add(new Novel("	The Lord of the Rings	"	,	"	J.R.R. Tolkien	"	,	1954	));
-        novels.add(new Novel("	Loving	"	,	"	Henry Green	"	,	1945	));
-        novels.add(new Novel("	Lucky Jim	"	,	"	Kingsley Amis	"	,	1954	));
-        novels.add(new Novel("	The Man Who Loved Children	"	,	"	Christina Stead	"	,	1940	));
-        novels.add(new Novel("	Midnight's Children	"	,	"	Salman Rushdie	"	,	1981	));
-        novels.add(new Novel("	Money	"	,	"	Martin Amis	"	,	1984	));
-        novels.add(new Novel("	The Moviegoer	"	,	"	Walker Percy	"	,	1961	));
-        novels.add(new Novel("	Mrs. Dalloway	"	,	"	Virginia Woolf	"	,	1925	));
-        novels.add(new Novel("	Naked Lunch	"	,	"	William Burroughs	"	,	1959	));
-        novels.add(new Novel("	Native Son	"	,	"	Richard Wright	"	,	1940	));
-        novels.add(new Novel("	Neuromancer	"	,	"	William Gibson	"	,	1984	));
-        novels.add(new Novel("	Never Let Me Go	"	,	"	Kazuo Ishiguro	"	,	2005	));
-        novels.add(new Novel("	1984	"	,	"	George Orwell	"	,	1948	));
-        novels.add(new Novel("	On the Road	"	,	"	Jack Kerouac	"	,	1957	));
-        novels.add(new Novel("	One Flew Over the Cuckoo's Nest	"	,	"	Ken Kesey	"	,	1962	));
-        novels.add(new Novel("	The Painted Bird	"	,	"	Jerzy Kosinski	"	,	1965	));
-        novels.add(new Novel("	Pale Fire	"	,	"	Vladimir Nabokov	"	,	1962	));
-        novels.add(new Novel("	A Passage to India	"	,	"	E.M. Forster	"	,	1924	));
-        novels.add(new Novel("	Play It as It Lays	"	,	"	Joan Didion	"	,	1970	));
-        novels.add(new Novel("	Portnoy's Complaint	"	,	"	Philip Roth	"	,	1969	));
-        novels.add(new Novel("	Possession	"	,	"	A.S. Byatt	"	,	1990	));
-        novels.add(new Novel("	The Power and the Glory	"	,	"	Graham Greene	"	,	1939	));
-        novels.add(new Novel("	The Prime of Miss Jean Brodie	"	,	"	Muriel Spark	"	,	1961	));
-        novels.add(new Novel("	Ragtime	"	,	"	E.L. Doctorow	"	,	1975	));
-        novels.add(new Novel("	The Recognitions	"	,	"	William Gaddis	"	,	1955	));
-        novels.add(new Novel("	Red Harvest	"	,	"	Dashiell Hammett	"	,	1929	));
-        novels.add(new Novel("	Revolutionary Road	"	,	"	Richard Yates	"	,	1961	));
-        novels.add(new Novel("	The Sheltering Sky	"	,	"	Paul Bowles	"	,	1949	));
-        novels.add(new Novel("	Slaughterhouse-Five	"	,	"	Kurt Vonnegut	"	,	1969	));
-        novels.add(new Novel("	Snow Crash	"	,	"	Neal Stephenson	"	,	1992	));
-        novels.add(new Novel("	The Sot-Weed Factor	"	,	"	John Barth	"	,	1960	));
-        novels.add(new Novel("	The Sound and the Fury	"	,	"	William Faulkner	"	,	1929	));
-        novels.add(new Novel("	The Sportswriter	"	,	"	Richard Ford	"	,	1986	));
-        novels.add(new Novel("	The Spy Who Came in from the Cold	"	,	"	John le Carr√©	"	,	1964	));
-        novels.add(new Novel("	The Sun Also Rises	"	,	"	Ernest Hemingway	"	,	1926	));
-        novels.add(new Novel("	Their Eyes Were Watching God	"	,	"	Zora Neale Hurston	"	,	1937	));
-        novels.add(new Novel("	Things Fall Apart	"	,	"	Chinua Achebe	"	,	1959	));
-        novels.add(new Novel("	To Kill a Mockingbird	"	,	"	Harper Lee	"	,	1960	));
-        novels.add(new Novel("	To the Lighthouse	"	,	"	Virginia Woolf	"	,	1929	));
-        novels.add(new Novel("	Tropic of Cancer	"	,	"	Henry Miller	"	,	1934	));
-        novels.add(new Novel("	Ubik	"	,	"	Philip K. Dick	"	,	1969	));
-        novels.add(new Novel("	Under the Net	"	,	"	Iris Murdoch	"	,	1954	));
-        novels.add(new Novel("	Under the Volcano	"	,	"	Malcolm Lowry	"	,	1947	));
-        novels.add(new Novel("	Watchmen	"	,	"	Alan Moore and Dave Gibbons	"	,	1986	));
-        novels.add(new Novel("	White Noise	"	,	"	Don DeLillo	"	,	1985	));
-        novels.add(new Novel("	White Teeth	"	,	"	Zadie Smith	"	,	2000	));
-        novels.add(new Novel("	Wide Sargasso Sea	"	,	"	Jean Rhys	"	,	1966	));
+        novels.add(new Novel("A House for Mr. Biswas	"	,	"	V.S. Naipaul	"	,	1962	));
+        novels.add(new Novel("I, Claudius	"	,	"	Robert Graves	"	,	1934	));
+        novels.add(new Novel("Infinite Jest	"	,	"	David Foster Wallace	"	,	1996	));
+        novels.add(new Novel("Invisible Man	"	,	"	Ralph Ellison	"	,	1952	));
+        novels.add(new Novel("Light in August	"	,	"	William Faulkner	"	,	1932	));
+        novels.add(new Novel("The Lion, The Witch and the Wardrobe	"	,	"	C.S. Lewis	"	,	1950	));
+        novels.add(new Novel("Lolita	"	,	"	Vladimir Nabokov	"	,	1955	));
+        novels.add(new Novel("Lord of the Flies	"	,	"	William Golding	"	,	1954	));
+        novels.add(new Novel("The Lord of the Rings	"	,	"	J.R.R. Tolkien	"	,	1954	));
+        novels.add(new Novel("Loving	"	,	"	Henry Green	"	,	1945	));
+        novels.add(new Novel("Lucky Jim	"	,	"	Kingsley Amis	"	,	1954	));
+        novels.add(new Novel("The Man Who Loved Children	"	,	"	Christina Stead	"	,	1940	));
+        novels.add(new Novel("Midnight's Children	"	,	"	Salman Rushdie	"	,	1981	));
+        novels.add(new Novel("Money	"	,	"	Martin Amis	"	,	1984	));
+        novels.add(new Novel("The Moviegoer	"	,	"	Walker Percy	"	,	1961	));
+        novels.add(new Novel("Mrs. Dalloway	"	,	"	Virginia Woolf	"	,	1925	));
+        novels.add(new Novel("Naked Lunch	"	,	"	William Burroughs	"	,	1959	));
+        novels.add(new Novel("Native Son	"	,	"	Richard Wright	"	,	1940	));
+        novels.add(new Novel("Neuromancer	"	,	"	William Gibson	"	,	1984	));
+        novels.add(new Novel("Never Let Me Go	"	,	"	Kazuo Ishiguro	"	,	2005	));
+        novels.add(new Novel("1984	"	,	"	George Orwell	"	,	1948	));
+        novels.add(new Novel("On the Road	"	,	"	Jack Kerouac	"	,	1957	));
+        novels.add(new Novel("One Flew Over the Cuckoo's Nest	"	,	"	Ken Kesey	"	,	1962	));
+        novels.add(new Novel("The Painted Bird	"	,	"	Jerzy Kosinski	"	,	1965	));
+        novels.add(new Novel("Pale Fire	"	,	"	Vladimir Nabokov	"	,	1962	));
+        novels.add(new Novel("A Passage to India	"	,	"	E.M. Forster	"	,	1924	));
+        novels.add(new Novel("Play It as It Lays	"	,	"	Joan Didion	"	,	1970	));
+        novels.add(new Novel("Portnoy's Complaint	"	,	"	Philip Roth	"	,	1969	));
+        novels.add(new Novel("Possession	"	,	"	A.S. Byatt	"	,	1990	));
+        novels.add(new Novel("The Power and the Glory	"	,	"	Graham Greene	"	,	1939	));
+        novels.add(new Novel("The Prime of Miss Jean Brodie	"	,	"	Muriel Spark	"	,	1961	));
+        novels.add(new Novel("Ragtime	"	,	"	E.L. Doctorow	"	,	1975	));
+        novels.add(new Novel("The Recognitions	"	,	"	William Gaddis	"	,	1955	));
+        novels.add(new Novel("Red Harvest	"	,	"	Dashiell Hammett	"	,	1929	));
+        novels.add(new Novel("Revolutionary Road	"	,	"	Richard Yates	"	,	1961	));
+        novels.add(new Novel("The Sheltering Sky	"	,	"	Paul Bowles	"	,	1949	));
+        novels.add(new Novel("Slaughterhouse-Five	"	,	"	Kurt Vonnegut	"	,	1969	));
+        novels.add(new Novel("Snow Crash	"	,	"	Neal Stephenson	"	,	1992	));
+        novels.add(new Novel("The Sot-Weed Factor	"	,	"	John Barth	"	,	1960	));
+        novels.add(new Novel("The Sound and the Fury	"	,	"	William Faulkner	"	,	1929	));
+        novels.add(new Novel("The Sportswriter	"	,	"	Richard Ford	"	,	1986	));
+        novels.add(new Novel("The Spy Who Came in from the Cold	"	,	"	John le Carr√©	"	,	1964	));
+        novels.add(new Novel("The Sun Also Rises	"	,	"	Ernest Hemingway	"	,	1926	));
+        novels.add(new Novel("Their Eyes Were Watching God	"	,	"	Zora Neale Hurston	"	,	1937	));
+        novels.add(new Novel("Things Fall Apart	"	,	"	Chinua Achebe	"	,	1959	));
+        novels.add(new Novel("To Kill a Mockingbird	"	,	"	Harper Lee	"	,	1960	));
+        novels.add(new Novel("To the Lighthouse	"	,	"	Virginia Woolf	"	,	1929	));
+        novels.add(new Novel("Tropic of Cancer	"	,	"	Henry Miller	"	,	1934	));
+        novels.add(new Novel("Ubik	"	,	"	Philip K. Dick	"	,	1969	));
+        novels.add(new Novel("Under the Net	"	,	"	Iris Murdoch	"	,	1954	));
+        novels.add(new Novel("Under the Volcano	"	,	"	Malcolm Lowry	"	,	1947	));
+        novels.add(new Novel("Watchmen	"	,	"	Alan Moore and Dave Gibbons	"	,	1986	));
+        novels.add(new Novel("White Noise	"	,	"	Don DeLillo	"	,	1985	));
+        novels.add(new Novel("White Teeth	"	,	"	Zadie Smith	"	,	2000	));
+        novels.add(new Novel("Wide Sargasso Sea	"	,	"	Jean Rhys	"	,	1966	));
     }
 
     /**
@@ -131,12 +133,9 @@ public class BookStore
     public void printAllTitles()
     {
         for(Novel novel: novels){
-            if(novel.getTitle()!=null && !novel.getTitle().isEmpty())
+            if(novel.isTitleValid())
             {
-                if(novel.getTitle()!=null && !novel.getTitle().isBlank())
-                {
-                    System.out.println(novel.getTitle().trim().toUpperCase());
-                }
+                System.out.println(novel.getTitle().toUpperCase());
             }
         }
     }
@@ -148,36 +147,14 @@ public class BookStore
      */
     public void printTitlesContaining(String substring, boolean caseSensitive)
     {
-        if (caseSensitive)
-        {
-            for (Novel novel : novels)
-            {
-                if (novel.getTitle() != null && !novel.getTitle().isEmpty())
-                {
-                    if (novel.getTitle() != null && !novel.getTitle().isBlank())
-                    {
-                        if (novel.getTitle().contains(substring))
-                        {
-                            System.out.println(novel.getTitle().trim());
-                        }
-                    }
-                }
-            }
-        } else {
-            for (Novel novel : novels)
-            {
-                if (novel.getTitle() != null && !novel.getTitle().isEmpty())
-                {
-                    if (novel.getTitle() != null && !novel.getTitle().isBlank())
-                    {
-                        if (novel.getTitle().toLowerCase().contains(substring.toLowerCase()))
-                        {
-                            System.out.println(novel.getTitle().trim());
-                        }
-                    }
-                }
+
+        String comparison = caseSensitive ? substring.toLowerCase() : substring;
+        for (Novel novel : novels){
+            if (novel.isTitleValid() && novel.getTitle().contains(comparison)){
+                System.out.println(novel.getTitle());
             }
         }
+
     }
 
     /**
@@ -188,15 +165,9 @@ public class BookStore
     {
         for (Novel novel : novels)
         {
-            if (novel.getTitle() != null && !novel.getTitle().isEmpty())
+            if (novel.isTitleValid() && novel.getTitle().length() == length)
             {
-                if (novel.getTitle() != null && !novel.getTitle().isBlank())
-                {
-                    if (novel.getTitle().trim().length() == length)
-                    {
-                        System.out.println(novel.getTitle().trim());
-                    }
-                }
+                System.out.println(novel.getTitle());
             }
         }
     }
@@ -209,89 +180,54 @@ public class BookStore
     {
         for (Novel novel : novels)
         {
-            if (novel.getAuthorName()!= null && !novel.getAuthorName().isEmpty())
+            if (novel.isAuthorValid() &&
+                    (novel.getAuthorName().toLowerCase().startsWith(substring.toLowerCase()) ||
+                            novel.getAuthorName().toLowerCase().endsWith(substring.toLowerCase())))
             {
-                if (novel.getAuthorName() != null && ! novel.getAuthorName().isBlank())
-                {
-                    if (novel.getAuthorName().trim().toLowerCase().startsWith(substring.toLowerCase())||novel.getAuthorName().trim().toLowerCase().endsWith(substring.toLowerCase()))
-                    {
-                        System.out.println(novel.getAuthorName().trim());
-                    }
-                }
+                System.out.println(novel.getAuthorName());
             }
         }
     }
 
     /**
      * gets the longest author name or title
-     * @param property define if the desired output is author name or title
+     * @param property define if the desired output is author name or title. Can be "author" or "title", case insensitive
+     *                 See also: <a href="https://wiki.c2.com/?StringlyTyped">wiki.c2.com/?StringlyTyped</a>
      * @return the longest author name or title or null
      */
     public String getLongest(String property)
     {
-        ArrayList<Integer> authorLength = new ArrayList<>();
-        ArrayList<Integer> titleLength = new ArrayList<>();
-
-        for(Novel novel: novels)
-        {
-            if (novel.getAuthorName()!= null && !novel.getAuthorName().isEmpty())
-            {
-                if (novel.getAuthorName() != null && !novel.getAuthorName().isBlank())
-                {
-                    authorLength.add(novel.getAuthorName().length());
+        String longest = "";
+        if(property.equalsIgnoreCase("author")){
+            for(Novel novel : novels){
+                if (novel.isAuthorValid() && novel.getAuthorName().length() > longest.length()){
+                    longest = novel.getAuthorName();
                 }
             }
-        }
-
-        for(Novel novel: novels)
-        {
-            if (novel.getTitle()!= null && !novel.getTitle().isEmpty())
-            {
-                if (novel.getTitle() != null && !novel.getTitle().isBlank())
-                {
-                    titleLength.add(novel.getTitle().length());
-                }
-            }
-        }
-
-        if(property.equalsIgnoreCase("author"))
-        {
-            Integer max = Collections.max(authorLength);
-            for(Novel novel: novels)
-            {
-                if (novel.getAuthorName()!= null && !novel.getAuthorName().isEmpty())
-                {
-                    if (novel.getAuthorName() != null && !novel.getAuthorName().isBlank())
-                    {
-                        if (novel.getAuthorName().length() == max)
-                        {
-                            return novel.getAuthorName().trim();
-                        }
-                    }
+        }else if(property.equalsIgnoreCase("title")){
+            for(Novel novel : novels){
+                if (novel.isTitleValid() &&novel.getTitle().length() > longest.length()){
+                    longest = novel.getTitle();
                 }
             }
         }else{
-            if(property.equalsIgnoreCase("title"))
-            {
-                Integer max = Collections.max(titleLength);
-                for(Novel novel: novels)
-                {
-                    if (novel.getTitle()!= null && !novel.getTitle().isEmpty())
-                    {
-                        if (novel.getTitle() != null && !novel.getTitle().isBlank())
-                        {
-                            if (novel.getTitle().length() == max)
-                            {
-                                return novel.getTitle().trim();
-                            }
-                        }
-                    }
-                }
+            return null;
+        }
+
+        return longest;
+
+        //If we wanted to be extra fancy we could use streams
+        /*
+            Stream<String> stream;
+            if(property.equalsIgnoreCase("author")){
+                stream = novels.stream().filter(Novel::isAuthorValid).map(Novel::getAuthorName);
+            }else if(property.equalsIgnoreCase("title")){
+                stream = novels.stream().filter(Novel::isTitleValid).map(Novel::getTitle);
             }else{
                 return null;
             }
-        }
-        return property;
+            return stream.max(Comparator.comparingInt(String::length)).orElseThrow();
+        */
     }
 
     public static void main(String[] args)
@@ -300,7 +236,4 @@ public class BookStore
         b.printAllTitles();
     }
 
-
-
-    //novels.add(new Novel("The Adventures of Augie March", "Saul Bellow", 1953));
 }
