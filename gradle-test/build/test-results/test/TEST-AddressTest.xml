@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AddressTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2022-05-25T22:14:20" hostname="DESKTOP-L9CDV07" time="0.023">
+  <properties/>
+  <testcase name="getStreetName()" classname="AddressTest" time="0.014"/>
+  <testcase name="getExpectedExceptionsStreetName()" classname="AddressTest" time="0.001"/>
+  <testcase name="getCity()" classname="AddressTest" time="0.001"/>
+  <testcase name="getStreetNumber()" classname="AddressTest" time="0.001"/>
+  <testcase name="getExpectedExceptionsStreetNumber()" classname="AddressTest" time="0.001"/>
+  <testcase name="getExpectedExceptionsCity()" classname="AddressTest" time="0.001"/>
+  <testcase name="getPostalCode()" classname="AddressTest" time="0.0"/>
+  <testcase name="getUnitNumber()" classname="AddressTest" time="0.0"/>
+  <testcase name="getExpectedExceptionsPostalCode()" classname="AddressTest" time="0.001"/>
+  <testcase name="getExpectedExceptionsUnitNumber()" classname="AddressTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
