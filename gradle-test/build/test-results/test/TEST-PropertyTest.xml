@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PropertyTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2022-05-25T22:14:20" hostname="DESKTOP-L9CDV07" time="0.008">
+  <properties/>
+  <testcase name="getPropertyId()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getExpectedExceptionsPropertyId()" classname="PropertyTest" time="0.001"/>
+  <testcase name="hasSwimmingPool()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getAddress()" classname="PropertyTest" time="0.001"/>
+  <testcase name="getType()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getExpectedExceptionsAddress()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getExpectedExceptionsNumBedrooms()" classname="PropertyTest" time="0.001"/>
+  <testcase name="setPriceUsd()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getPriceUsd()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getNumberOfBedrooms()" classname="PropertyTest" time="0.001"/>
+  <testcase name="getExpectedExceptionsPropertyType()" classname="PropertyTest" time="0.0"/>
+  <testcase name="getExpectedExceptionsPriceUsd()" classname="PropertyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

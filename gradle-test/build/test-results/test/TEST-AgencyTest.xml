@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AgencyTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-05-25T22:14:20" hostname="DESKTOP-L9CDV07" time="0.032">
+  <properties/>
+  <testcase name="getPropertiesBetween()" classname="AgencyTest" time="0.002"/>
+  <testcase name="getPropertiesOfType()" classname="AgencyTest" time="0.006"/>
+  <testcase name="getPropertiesWithPools()" classname="AgencyTest" time="0.001"/>
+  <testcase name="getPropertiesWithBedrooms()" classname="AgencyTest" time="0.001"/>
+  <testcase name="getTotalPropertyValues()" classname="AgencyTest" time="0.004"/>
+  <testcase name="getPropertiesOn()" classname="AgencyTest" time="0.011"/>
+  <testcase name="addGetProperty()" classname="AgencyTest" time="0.001"/>
+  <testcase name="removeProperty()" classname="AgencyTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
