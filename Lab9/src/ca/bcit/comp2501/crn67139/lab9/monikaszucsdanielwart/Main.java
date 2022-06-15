@@ -1,10 +1,12 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart;
 
 import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.*;
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.printer.InkColor;
 import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.printer.Printer;
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
 
+/**
+ * @version 2.0
+ */
 public class Main {
     // Code from https://en.wikipedia.org/wiki/Brainfuck#Hello_World!
     private static final String HELLO_WORLD_PROGRAM =
@@ -24,7 +26,7 @@ public class Main {
                 new Printer(
                         "Brother",
                         "HL-2280DW",
-                        new InkColor(InkColor.Color.BLACK),
+                        Printer.InkColor.BLACK,
                         36.0,
                         true,
                         true,
@@ -48,7 +50,8 @@ public class Main {
                         true,
                         true));
         room.buyElectronic(new Fan("Honeywell", "QC03", 60.0, 13.0, true, 3, true));
-        room.buyElectronic(new Cellphone("Iphone", "XR", 1400.0, true, 80.0, 6.1, true, true, false));
+        room.buyElectronic(
+                new Cellphone("Iphone", "XR", 1400.0, true, 80.0, 6.1, true, true, false));
         room.buyElectronic(new Speaker("Ultimate Ears", "Boom 3", 250.0, true, true, false));
 
         room.test();
@@ -73,7 +76,7 @@ public class Main {
                 new Printer(
                         "Sister",
                         "WD0822-LH",
-                        new InkColor(InkColor.Color.BLACK),
+                        Printer.InkColor.BLACK,
                         30000.0,
                         true,
                         true,

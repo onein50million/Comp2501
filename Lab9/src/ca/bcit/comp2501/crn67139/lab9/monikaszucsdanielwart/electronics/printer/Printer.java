@@ -1,7 +1,7 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.printer;
 
 import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.Electronic;
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
 
 /**
  * Printer.java COMP 2501 - CRN: 67139 Wednesday evenings, Spring/Summer 2022 Lab #9
@@ -10,7 +10,6 @@ import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
  *
  * @author Monika Szucs
  * @author Daniel Wart
- * @version 1.2
  *     <p>This Printer Class that will create the ArrayList and add the appropriate items to it
  *     while displaying the called information from other classes/methods
  */
@@ -19,6 +18,13 @@ public class Printer extends Electronic {
     public enum Mode {
         TEXT,
         NUMBER
+    }
+
+    public enum InkColor {
+        YELLOW,
+        BLACK,
+        MAGENTA,
+        CYAN
     }
 
     private final InkColor tonerColor;
@@ -89,13 +95,13 @@ public class Printer extends Electronic {
     /**
      * This is the belt length method
      *
-     * This will check if the printer is small, medium or large.
+     * <p>This will check if the printer is small, medium or large.
      */
     public String getBeltLength() {
 
-        if(getBeltLengthCm() < SMALL_PRINTER) {
+        if (getBeltLengthCm() < SMALL_PRINTER) {
             return "This printer is too small";
-        } else if(beltLengthCm <= MEDIUM_PRINTER) {
+        } else if (beltLengthCm <= MEDIUM_PRINTER) {
             return "This is a medium printer";
         } else {
             return "This printer is a large printer";
@@ -156,7 +162,7 @@ public class Printer extends Electronic {
                     }
                 } else if (mode == Mode.NUMBER) {
                     for (char c : buffer) {
-                        outString.append((int)c);
+                        outString.append((int) c);
                     }
                 }
                 System.out.println(outString);

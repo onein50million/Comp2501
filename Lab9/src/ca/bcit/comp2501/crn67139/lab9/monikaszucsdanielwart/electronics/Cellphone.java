@@ -1,6 +1,6 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics;
 
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
 
 /**
  * Cellphone.java COMP 2501 - CRN: 67139 Wednesday evenings, Spring/Summer 2022 Lab #9
@@ -9,7 +9,6 @@ import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
  *
  * @author Monika Szucs
  * @author Daniel Wart
- * @version 1.2
  *     <p>This Cellphone Class that will create the appropriate constructor and methods
  */
 public class Cellphone extends Electronic {
@@ -29,12 +28,14 @@ public class Cellphone extends Electronic {
      * @param brand this is the brand of the cellphone
      * @param model this is the model of the cellphone
      * @param priceCdn this is the price of the cellphone
-     * @param dataPlanCostCdnMonthly this is to see what the data plan the person is paying for that cellphone
+     * @param dataPlanCostCdnMonthly this is to see what the data plan the person is paying for that
+     *     cellphone
      * @param displaySizeInches this is to see what size the cellphone is
      * @param dataEnabled this is to see if the cellphone has the data turned on
      * @param sms this is to see if the cellphone can receive messages
      * @param powerCableAttached this is to see if the cellphone has a cable connected directly to
      *     it at all times
+     * @param hasAuxPort whether the phone has an aux port and thus is able to connect to a speaker
      */
     public Cellphone(
             final String brand,
@@ -51,7 +52,7 @@ public class Cellphone extends Electronic {
         if (priceCdn <= MIN_PRICE_CDN) {
             throw new IllegalArgumentException("That is a incorrect price you have entered.");
         }
-        if (dataPlanCostCdnMonthly < MIN_DATA_PLAN_COST_CDN){
+        if (dataPlanCostCdnMonthly < MIN_DATA_PLAN_COST_CDN) {
             throw new IllegalArgumentException("Data plan is too cheap");
         }
 
@@ -75,6 +76,7 @@ public class Cellphone extends Electronic {
     public boolean hasSms() {
         return sms;
     }
+
     public boolean isDataEnabled() {
         return dataEnabled;
     }
@@ -90,6 +92,7 @@ public class Cellphone extends Electronic {
     public double getDisplaySizeInches() {
         return displaySizeInches;
     }
+
     public ModemRouter getConnectedModemRouter() {
         return connectedModemRouter;
     }
@@ -98,12 +101,16 @@ public class Cellphone extends Electronic {
         this.connectedModemRouter = connectedModemRouter;
     }
 
-    public boolean hasInternet(){
-        if(getConnectedModemRouter() == null && !isDataEnabled()){
+    /**
+     * @return whether the phone is connected to the internet. Needs to either have data or be
+     *     connected to a modem with internet and power
+     */
+    public boolean hasInternet() {
+        if (getConnectedModemRouter() == null && !isDataEnabled()) {
             return false;
-        }else if (isDataEnabled()){
+        } else if (isDataEnabled()) {
             return true;
-        }else{
+        } else {
             return getConnectedModemRouter().hasInternet();
         }
     }
@@ -111,9 +118,9 @@ public class Cellphone extends Electronic {
     public String getDataPlanCategory() {
         if (getDataPlanCostCdnMonthly() <= AFFORDABLE_DATA_PLAN_COST_CDN) {
             return "Wow, that's a good deal!";
-        }else if(getDataPlanCostCdnMonthly() <= EXPENSIVE_DATA_PLAN_COST_CDN) {
+        } else if (getDataPlanCostCdnMonthly() <= EXPENSIVE_DATA_PLAN_COST_CDN) {
             return "There better be some good reception and data on this plan";
-        } else{
+        } else {
             return "This is too expensive";
         }
     }

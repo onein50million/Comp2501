@@ -1,6 +1,6 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics;
 
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
 
 /**
  * Laptop.java COMP 2501 - CRN: 67139 Wednesday evenings, Spring/Summer 2022 Lab #9
@@ -9,8 +9,8 @@ import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
  *
  * @author Monika Szucs
  * @author Daniel Wart
- * @version 1.2
- *     <p>This Laptop Class that will create the appropriate constructor and methods
+ *     <p>Laptop class that has a battery, keyboard, processor (with a naive interpreter of a simple
+ *     programming language), as well as different purchase options.
  */
 public class Laptop extends Electronic {
     private final double displaySizeInches;
@@ -44,6 +44,7 @@ public class Laptop extends Electronic {
      * @param powerCableAttached this is to see if the power cable is directly attached or not
      * @param touchPad this is to see if the laptop has a touchpad or not
      * @param wirelessMouse this is to see if the laptop is using a wireless mouse
+     * @param dataPorts The types of ports this Laptop has
      * @throws IllegalArgumentException this checks to see if there is an Illegal Argument Exception
      */
     public Laptop(
@@ -104,20 +105,28 @@ public class Laptop extends Electronic {
     }
 
     public String howBig() {
-        if(getDisplaySizeInches() <= SMALL_TO_MEDIUM_DISPLAY_SIZE ) {
+        if (getDisplaySizeInches() <= SMALL_TO_MEDIUM_DISPLAY_SIZE) {
             return "This is a small display screen";
-        } else if(getDisplaySizeInches() > SMALL_TO_MEDIUM_DISPLAY_SIZE){
+        } else if (getDisplaySizeInches() > SMALL_TO_MEDIUM_DISPLAY_SIZE) {
             return "This is a medium display screen";
-        } else if(getDisplaySizeInches() >= MEDIUM_TO_LARGE_DISPLAY_SIZE) {
+        } else if (getDisplaySizeInches() >= MEDIUM_TO_LARGE_DISPLAY_SIZE) {
             return "This is a large display screen";
         }
         return "Screen is a weird size";
     }
 
+    /**
+     * Basically just a setter for the readOnlyMemory
+     *
+     * @param readOnlyMemory the new memory
+     */
     public void programReadOnlyMemory(String readOnlyMemory) {
         this.readOnlyMemory = readOnlyMemory;
     }
 
+    /**
+     * @return the next key in the keyboard buffer, incrementing the keyboard pointer
+     */
     public char readKey() {
         if (keyboardPointer >= this.keyboardBuffer.length) {
             System.out.println("You hear the laptop make a beep");
@@ -128,11 +137,17 @@ public class Laptop extends Electronic {
         return out;
     }
 
+    /**
+     * Sets the keyboard buffer and resets the keyboard pointer
+     *
+     * @param buffer The desired keyboard input
+     */
     public void setKeyboardBuffer(String buffer) {
         this.keyboardBuffer = buffer.toCharArray();
         this.keyboardPointer = 0;
     }
 
+    /** Reset the laptop, clearing the memory and resetting the data and instruction pointers */
     private void reset() {
         this.dataPointer = 0;
         this.instructionPointer = 0;
@@ -142,10 +157,16 @@ public class Laptop extends Electronic {
     }
 
     /**
+     * A very simple interpreter for Brainf**k. Works for trivial programs but will likely be very
+     * slow on more complicated ones
+     *
      * @see <a href="https://en.wikipedia.org/wiki/Brainfuck#Language_design">Wikipedia article on
-     *     language</a>
+     *     the language</a>
      */
     public void runStoredProgram() {
+        if (!hasPower()) {
+            return;
+        }
         reset();
         while (instructionPointer < readOnlyMemory.length()) {
             var currentInstruction = readOnlyMemory.charAt(instructionPointer);
@@ -190,6 +211,11 @@ public class Laptop extends Electronic {
         }
     }
 
+    /**
+     * Helper method to find the matching bracket
+     * @param currentInstruction The bracket we're looking at
+     * @return The index of the matching bracket
+     */
     private int findMatchingBracket(char currentInstruction) {
         assert currentInstruction == '[' || currentInstruction == ']';
         int direction;

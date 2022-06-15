@@ -7,21 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Room.java
- * COMP 2501 - CRN: 67139
- * Wednesday evenings, Spring/Summer 2022
- * Lab #9
+ * Room.java COMP 2501 - CRN: 67139 Wednesday evenings, Spring/Summer 2022 Lab #9
  *
- * Exploring Inheritance by developing a data class hierarchy.
+ * <p>Exploring Inheritance by developing a data class hierarchy.
  *
  * @author Monika Szucs
  * @author Daniel Wart
- *
- * @version 1.2
- *
- * This Room Class that will create the ArrayList and add the appropriate items to it while displaying the
- * called information from other classes/methods
- *
+ *     <p>This Room Class that will create the ArrayList and add the appropriate items to it while
+ *     displaying the called information from other classes/methods
  */
 public class Room {
 
@@ -32,7 +25,6 @@ public class Room {
     private static final double MODEM_BUDGET = 30.0;
     private static final double SPEAKER_BUDGET = 300.0;
     private static final char UNDERLINE_CHAR = '=';
-
 
     public final List<Electronic> electronics;
 
@@ -49,20 +41,21 @@ public class Room {
     public void buyElectronic(Electronic e) {
         this.electronics.add(e);
     }
-    public void sellElectronic(int index){
+
+    public void sellElectronic(int index) {
         this.electronics.remove(index);
     }
 
-    public int numElectronics(){
+    public int numElectronics() {
         return this.electronics.size();
     }
 
-    public void test(){
+    public void test() {
         for (Electronic e : this.electronics) {
             System.out.println();
             System.out.println(e);
             var underlineString = new StringBuilder();
-            for (int i = 0; i < e.toString().length(); i++){
+            for (int i = 0; i < e.toString().length(); i++) {
                 underlineString.append(UNDERLINE_CHAR);
             }
             System.out.println(underlineString);
@@ -93,6 +86,8 @@ public class Room {
                 System.out.printf("Fan temperature: %s °C\n", fan.getTemperatureCelsius());
                 System.out.println("How hot does it feel?");
                 System.out.println(fan.getTemperature());
+
+                System.out.println("Oh no I'm moving my fan but my hands are covered in whale oil from all the illegal whaling I've been doing!");
                 fan.drop();
             }
 
@@ -112,31 +107,26 @@ public class Room {
         }
         System.out.println("\n");
     }
-    private static double getBudget(Electronic e){
-        if (e instanceof Printer){
+
+    private static double getBudget(Electronic e) {
+        if (e instanceof Printer) {
             return PRINTER_BUDGET;
-        }
-        else if (e instanceof Cellphone){
+        } else if (e instanceof Cellphone) {
             return CELLPHONE_BUDGET;
-        }
-        else if (e instanceof Fan){
+        } else if (e instanceof Fan) {
             return FAN_BUDGET;
-        }
-        else if (e instanceof Laptop){
+        } else if (e instanceof Laptop) {
             return LAPTOP_BUDGET;
-        }
-        else if (e instanceof ModemRouter){
+        } else if (e instanceof ModemRouter) {
             return MODEM_BUDGET;
-        }
-        else if (e instanceof Speaker){
+        } else if (e instanceof Speaker) {
             return SPEAKER_BUDGET;
         }
         throw new AssertionError("getBudget is missing a cases");
     }
+
     @Override
     public String toString() {
-        return "Room{" +
-                "electronics=" + electronics +
-                '}';
+        return "Room{" + "electronics=" + electronics + '}';
     }
 }

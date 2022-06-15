@@ -1,8 +1,8 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics;
 
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.FullPortsException;
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.NoMatchingPortsException;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.FullPortsException;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.NoMatchingPortsException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,6 @@ import java.util.List;
  *
  * @author Monika Szucs
  * @author Daniel Wart
- * @version 1.2
  *     <p>This Electronic Class that will create the appropriate constructor and methods
  */
 public class Electronic {
@@ -35,6 +34,8 @@ public class Electronic {
      * @param model this is the model of the electronics
      * @param priceCdn this is the price of the electronics in Canadian Dollars
      * @param powerCableAttached this is to check to see if the cable is directly attached or not
+     * @param dataPorts An array of DataPorts representing what type of Electronics can be plugged
+     *     into the device
      */
     protected Electronic(
             final String brand,
@@ -57,17 +58,15 @@ public class Electronic {
             throw new IllegalArgumentException("Must at least have an empty array for data ports");
         }
 
-
         this.brand = brand;
         this.model = model;
         this.priceCdn = priceCdn;
         this.powerCableAttached = powerCableAttached;
         this.dataPorts = dataPorts;
-        for(var port : dataPorts){
+        for (var port : dataPorts) {
             port.setHost(this);
         }
         this.printBuffer = new ArrayList<>();
-
     }
 
     /**
@@ -143,7 +142,7 @@ public class Electronic {
         }
     }
 
-    public boolean checkPrice(double budgetCdn){
+    public boolean checkPrice(double budgetCdn) {
         return getPriceCdn() <= budgetCdn;
     }
 

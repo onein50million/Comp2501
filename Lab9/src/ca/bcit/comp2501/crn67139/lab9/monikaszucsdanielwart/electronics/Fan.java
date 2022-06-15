@@ -1,6 +1,6 @@
 package ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics;
 
-import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
+import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.electronics.port.DataPort;
 
 /**
  * Fan.java COMP 2501 - CRN: 67139 Wednesday evenings, Spring/Summer 2022 Lab #9
@@ -9,7 +9,6 @@ import ca.bcit.comp2501.crn67139.lab9.monikaszucsdanielwart.port.DataPort;
  *
  * @author Monika Szucs
  * @author Daniel Wart
- * @version 1.2
  *     <p>This Fan Class that will create the appropriate constructor and methods
  */
 public class Fan extends Electronic {
@@ -45,11 +44,11 @@ public class Fan extends Electronic {
             final boolean powerCableAttached,
             final int bladeCount,
             final boolean fallDetectionOn) {
-        super(brand, model, priceCdn, powerCableAttached, new DataPort[] {});
+        super(brand, model, priceCdn, powerCableAttached, new DataPort[] {}); //Fan doesn't have any data ports
 
-        if(temperatureCelsius < MIN_TEMPERATURE_CELSIUS) {
+        if (temperatureCelsius < MIN_TEMPERATURE_CELSIUS) {
             throw new IllegalArgumentException("The temperature (Celsius) you entered is too low");
-        } else if(temperatureCelsius > MAX_TEMPERATURE_CELSIUS) {
+        } else if (temperatureCelsius > MAX_TEMPERATURE_CELSIUS) {
             throw new IllegalArgumentException("The temperature (Celsius) you entered is too high");
         }
 
@@ -84,21 +83,30 @@ public class Fan extends Electronic {
         return fallDetectionOn;
     }
 
-    public String getTemperature(){
-        if(getTemperatureCelsius() <= COOL_WARM_BREAKING_POINT) {
+
+    /**
+     * @return a subjective opinion on how hot the fan is
+     */
+    public String getTemperature() {
+        if (getTemperatureCelsius() <= COOL_WARM_BREAKING_POINT) {
             return "The air is cool";
-        } else if(getTemperatureCelsius() <= WARM_HOT_BREAKING_POINT) {
+        } else if (getTemperatureCelsius() <= WARM_HOT_BREAKING_POINT) {
             return "The air is warm";
         } else {
             return "The air is hot";
         }
     }
 
-    public void drop(){
-        if (isFallDetectionOn()){
-            turnOff();
-        }else{
-            System.out.println("Everyone dies");
+    /**
+     * Drop the fan! Hopefully it's one of those newfangled ones with the extra safety features...
+     */
+    public void drop() {
+        if (isTurnedOn()){
+            if (isFallDetectionOn()) {
+                turnOff();
+            } else {
+                System.out.println("Everyone dies");
+            }
         }
     }
 }
